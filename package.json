@@ -1,5 +1,5 @@
 {
-  "name": "template-tg-puregram-bot",
+  "name": "template-puregram-tg-bot",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
