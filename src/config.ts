@@ -3,13 +3,9 @@ import * as v from 'valibot';
 
 const configSchema = v.object({
   NODE_ENV: v.picklist(['development', 'production']),
-  LOG_LEVEL: v.optional(
-    v.picklist(['trace', 'debug', 'info', 'warn', 'error', 'fatal', 'silent']),
-    'info',
-  ),
   BOT_TOKEN: v.string(),
   ADMINS: v.array(v.number()),
-  DEVS: v.array(v.number()),
+  DEV: v.number(),
 });
 
 const parseConfig = () => {
@@ -17,7 +13,7 @@ const parseConfig = () => {
     ...process.env,
     ...{
       ADMINS: JSON.parse(process.env.ADMINS!),
-      DEVS: JSON.parse(process.env.DEVS!),
+      DEV: JSON.parse(process.env.DEV!),
     },
   };
 
@@ -30,6 +26,6 @@ const parseConfig = () => {
   };
 };
 
-export type Config = ReturnType<typeof parseConfig>;
+export type TConfig = ReturnType<typeof parseConfig>;
 
 export const config = parseConfig();

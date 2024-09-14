@@ -4,7 +4,7 @@
     "module": "CommonJS",
     "moduleResolution": "node",
     "outDir": "dist",
-    "rootDir": ".",
+    "rootDir": "src",
     "lib": ["esnext"],
     "sourceMap": true,
     "strict": true,
@@ -12,10 +12,15 @@
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "baseUrl": "src",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "baseUrl": ".",
     "paths": {
-      "~": ["./src"],
-      "@bot": ["./bot"]
+      "@Bot/*": ["./src/bot/*"],
+      "@Bot": ["./src/bot/bot"],
+      "@Utils/*": ["./src/utils/*"],
+      "@Utils": ["./src/utils/index"],
+      "@Config": ["./src/config"]
     }
   },
   "include": ["src/**/*.ts"]
